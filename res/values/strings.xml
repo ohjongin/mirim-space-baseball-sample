@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MIN\'SBASEBALLGAME</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_start">START</string>
+    <string name="title_activity_help">HELP</string>
+    <string name="title_activity_stage1">STAGE1</string>
+    <string name="title_activity_stage2">STAGE2</string>
+    <string name="title_activity_stage3">STAGE3</string>
+
+</resources>
