@@ -1,10 +1,10 @@
 package com.example.minsbaseballgame;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 
-public class HELP extends Activity {
+public class HelpActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

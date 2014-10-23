@@ -1,7 +1,5 @@
 package com.example.minsbaseballgame;
 
-import java.util.Arrays;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -13,9 +11,11 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class STAGE1 extends Activity {
+import java.util.Arrays;
+
+public class Stage1 extends Activity {
     private static final int DIALOG_NEW_YES_NO = 1;
-    
+
     TextView tvResult;
     TextView TextViewValue[] = new TextView[3];
     int com_Array[] = new int[3];
@@ -33,26 +33,26 @@ public class STAGE1 extends Activity {
         TextViewValue[2] = (TextView) findViewById(R.id.TextViewValue3);
         tvResult = (TextView) findViewById(R.id.TextViewAttack2);
 
-        // ÃÊ±âÈ­
+        // ì´ˆê¸°í™”
         init_com();
 
     }
-    
-    
-    // <- ¹é½ºÆäÀÌ½º ¹öÆ°ÀÌ Å¬¸¯µÇ¾úÀ»¶§ È£ÃâµÇ´Â ¸Ş¼­µå
+
+
+    // <- ë°±ìŠ¤í˜ì´ìŠ¤ ë²„íŠ¼ì´ í´ë¦­ë˜ì—ˆì„ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     public void clickBtnDelListener(View target) {
 
         /*
         * for(int i=2;i>=0;i--){
               if(TextViewValue[i].getText().toString().trim().length()==1){
-                  TextViewValue[i].setText(" "); break; 
-              } 
+                  TextViewValue[i].setText(" "); break;
+              }
           }
          */
 
         /*
           if(TextViewValue[2].getText().toString().trim().length()==1){
-              TextViewValue[2].setText(" "); 
+              TextViewValue[2].setText(" ");
           }else if(TextViewValue[1].getText().toString().trim().length()==1){
               TextViewValue[1].setText(" ");
           }else if(TextViewValue[0].getText().toString().trim().length()==1){
@@ -67,7 +67,7 @@ public class STAGE1 extends Activity {
         }
     }
 
-    //¼ıÀÚ ¹öÆ°À» Å¬¸¯µÇ¾úÀ»¶§ È£ÃâµÇ´Â ¸Ş¼­µå
+    //ìˆ«ì ë²„íŠ¼ì„ í´ë¦­ë˜ì—ˆì„ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     public void clickBtnNumListener(View target) {
 
         Button btnNum = ((Button) target);
@@ -78,10 +78,10 @@ public class STAGE1 extends Activity {
             if (v.getText().toString().trim().equals(strNum)) {
                 return;
             }
-        }*/ 
+        }*/
 
         // TextViewValue[0].setText(strNum);
-        
+
         /*
         if (TextViewValue[0].getText().toString().trim().length() != 1) {
             TextViewValue[0].setText(strNum);
@@ -89,10 +89,10 @@ public class STAGE1 extends Activity {
             TextViewValue[1].setText(strNum);
         } else if (TextViewValue[2].getText().toString().trim().length() != 1) {
             TextViewValue[2].setText(strNum);
-            Toast.makeText(getApplicationContext(), "°ø°İ¹öÆ°À» ´­·¯ÁÖ¼¼¿ä",
+            Toast.makeText(getApplicationContext(), "ê³µê²©ë²„íŠ¼ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”",
                     Toast.LENGTH_SHORT).show();
         }*/
-         
+
 
         if (isPlay) {
             if (inputPos < 3) {
@@ -106,173 +106,170 @@ public class STAGE1 extends Activity {
                 inputPos++;
 
             } else {
-                Toast.makeText(getApplicationContext(), "°ø°İ¹öÆ°À» ´­·¯ÁÖ¼¼¿ä",
+                Toast.makeText(getApplicationContext(), "ê³µê²©ë²„íŠ¼ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”",
                         Toast.LENGTH_SHORT).show();
             }
         } else {
-            Toast.makeText(getApplicationContext(), "°ÔÀÓÀ» »õ·Î ½ÃÀÛÇØÁÖ¼¼¿ä!",
+            Toast.makeText(getApplicationContext(), "ê²Œì„ì„ ìƒˆë¡œ ì‹œì‘í•´ì£¼ì„¸ìš”!",
                     Toast.LENGTH_SHORT).show();
         }
 
     }
 
-    //»õ°ÔÀÓ ¹öÆ°ÀÌ Å¬¸¯µÇ¾úÀ»¶§ È£ÃâµÇ´Â ¸Ş¼­µå
+    //ìƒˆê²Œì„ ë²„íŠ¼ì´ í´ë¦­ë˜ì—ˆì„ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     public void clickBtnNewListener(View target) {
         init_com();
     }
 
-    
-    //°ÔÀÓ ÃÊ±âÈ­
+
+    //ê²Œì„ ì´ˆê¸°í™”
     public void init_com() {
 
-        play_cnt = 0; // °ø°İÈ½¼ö ÃÊ±âÈ­;
+        play_cnt = 0; // ê³µê²©íšŸìˆ˜ ì´ˆê¸°í™”;
         for (TextView v : TextViewValue) {
             v.setText(" ");
         }
-        // Áßº¹µÇÁö ¾Ê´Â 3°³ÀÇ ³­¼ö ÀúÀå.
+        // ì¤‘ë³µë˜ì§€ ì•ŠëŠ” 3ê°œì˜ ë‚œìˆ˜ ì €ì¥.
         int i = 0;
         do {
             // int r = (int)(Math.random()*9)+1;
             int r = (int) (Math.random() * 10);
             com_Array[i] = r;
 
-            for (int j = 0; j < i; j++) { // Áßº¹µÇ´Â °ª °Ë»ç.
+            for (int j = 0; j < i; j++) { // ì¤‘ë³µë˜ëŠ” ê°’ ê²€ì‚¬.
                 if (com_Array[i] == com_Array[j]) {
-                    i--; // Áßº¹°ªÀÌ ÀÖÀ¸¸é iº¯¼ö¸¦ -1.
-                    break; // ¹İº¹¹® Á¾·á
+                    i--; // ì¤‘ë³µê°’ì´ ìˆìœ¼ë©´ ië³€ìˆ˜ë¥¼ -1.
+                    break; // ë°˜ë³µë¬¸ ì¢…ë£Œ
                 }// if
             }// for
 
             i++;
 
-        } while (i < 3); // 3È¸Àü
+        } while (i < 3); // 3íšŒì „
 
-        // ±âÁ¸¿¡ ÀÖ´Â °á°ú°ª Å¬¸®¾î
+        // ê¸°ì¡´ì— ìˆëŠ” ê²°ê³¼ê°’ í´ë¦¬ì–´
         tvResult.setText("");
         // tvResult.append(Arrays.toString(com_Array));
         tvResult.append("\n");
-        tvResult.setText("»õ °ÔÀÓÀ» ½ÃÀÛÇÕ´Ï´Ù.\n");
-        tvResult.append("°ø°İÇÒ ¼ıÀÚ 3°³¸¦ ¼±ÅÃÇÏ½Ã°í [°ø°İ] ¹öÆ°À» ´­·¯ÁÖ¼¼¿ä!\n");
+        tvResult.setText("ìƒˆ ê²Œì„ì„ ì‹œì‘í•©ë‹ˆë‹¤.\n");
+        tvResult.append("ê³µê²©í•  ìˆ«ì 3ê°œë¥¼ ì„ íƒí•˜ì‹œê³  [ê³µê²©] ë²„íŠ¼ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”!\n");
         inputPos = 0;
         play_cnt = 0;
         isPlay = true;
 
     }
-    
-    
-    //°ø°İ¹öÆ°À» ´­·¶À»¶§ È£ÃâµÇ´Â ¸Ş¼­µå
+
+
+    //ê³µê²©ë²„íŠ¼ì„ ëˆŒë €ì„ë•Œ í˜¸ì¶œë˜ëŠ” ë©”ì„œë“œ
     public void attack(View target) {
 
-        resut_arr = new int[3]; // °á°ú ÃÊ±âÈ­
+        resut_arr = new int[3]; // ê²°ê³¼ ì´ˆê¸°í™”
 
         if (isPlay) {
-            // ÀÔ·Â°ª Ã¼Å© (ÀÔ·Â¹ŞÀº ¼ıÀÚ°¡ 3°³°¡ ¾Æ´Ï¸é ¸Ş½ÃÁöÃ¢ Ãâ·Â)
+            // ì…ë ¥ê°’ ì²´í¬ (ì…ë ¥ë°›ì€ ìˆ«ìê°€ 3ê°œê°€ ì•„ë‹ˆë©´ ë©”ì‹œì§€ì°½ ì¶œë ¥)
             if (inputPos != 3) {
-                Toast.makeText(getApplicationContext(), "°ø°İÇÒ ¼ıÀÚ 3°³¸¦ ¼±ÅÃÇØÁÖ¼¼¿ä!",
+                Toast.makeText(getApplicationContext(), "ê³µê²©í•  ìˆ«ì 3ê°œë¥¼ ì„ íƒí•´ì£¼ì„¸ìš”!",
                         Toast.LENGTH_SHORT).show();
                 return;
             }
-            
-            int user_Array[] = new int[3];            
+
+            int user_Array[] = new int[3];
             for (int i = 0; i < TextViewValue.length; i++) {
                 user_Array[i] = Integer.parseInt(TextViewValue[i].getText()
                         .toString());
             }
 
-            // °á°ú °Ë»ç
+            // ê²°ê³¼ ê²€ì‚¬
             for (int i = 0; i < 3; i++) {
                 for (int j = 0; j < 3; j++) {
 
                     if (com_Array[i] == user_Array[j]) {
-                        if (i == j) { // ¼­·Î °°Àº ¼ıÀÚ°¡ ÀÖ°í ±× ¼ıÀÚÀÇ ÀÚ¸®°¡ °°À¸¸é ½ºÆ®¶óÀÌÅ© Ã³¸®
-                            resut_arr[0]++; // ½ºÆ®¶óÀÌÅ©
-                        } else { // ¼­·Î °°Àº ¼ıÀÚ°¡ ÀÖ°í ±× ¼ıÀÚÀÇ ÀÚ¸®°¡ ´Ù¸£¸é º¼ Ã³¸®
-                            resut_arr[1]++; // º¼
+                        if (i == j) { // ì„œë¡œ ê°™ì€ ìˆ«ìê°€ ìˆê³  ê·¸ ìˆ«ìì˜ ìë¦¬ê°€ ê°™ìœ¼ë©´ ìŠ¤íŠ¸ë¼ì´í¬ ì²˜ë¦¬
+                            resut_arr[0]++; // ìŠ¤íŠ¸ë¼ì´í¬
+                        } else { // ì„œë¡œ ê°™ì€ ìˆ«ìê°€ ìˆê³  ê·¸ ìˆ«ìì˜ ìë¦¬ê°€ ë‹¤ë¥´ë©´ ë³¼ ì²˜ë¦¬
+                            resut_arr[1]++; // ë³¼
                         }// if
                     }// if
                 }// for
             }// for
 
-            // ¾Æ¿ô °è»ê
-            resut_arr[2] = 3 - (resut_arr[0] + resut_arr[1]); // ¾Æ¿ô!
-            
-            // ÀÔ·Â°ªÀ» Ç¥½ÃÇÏ´Â ÅØ½ºÆ®ÇÊµå ÃÊ±âÈ­
+            // ì•„ì›ƒ ê³„ì‚°
+            resut_arr[2] = 3 - (resut_arr[0] + resut_arr[1]); // ì•„ì›ƒ!
+
+            // ì…ë ¥ê°’ì„ í‘œì‹œí•˜ëŠ” í…ìŠ¤íŠ¸í•„ë“œ ì´ˆê¸°í™”
             for (TextView v : TextViewValue) {
                 v.setText(" ");
             }
             inputPos = 0;
-            
-            play_cnt++;// ÇÃ·¹ÀÌ Ä«¿îÆ® Áõ°¡
-            
-            // °á°ú°ª Ãâ·Â
-            String strResult = play_cnt + "È¸Àü: " + Arrays.toString(user_Array)
+
+            play_cnt++;// í”Œë ˆì´ ì¹´ìš´íŠ¸ ì¦ê°€
+
+            // ê²°ê³¼ê°’ ì¶œë ¥
+            String strResult = play_cnt + "íšŒì „: " + Arrays.toString(user_Array)
                     + "  " + resut_arr[0] + " Strike!!   " + resut_arr[1]
                     + " Ball!!   " + resut_arr[2] + " Out!! \n";
 
             //tvResult.append(strResult);
             appendResult(strResult);
-            
-            
-            if (resut_arr[0] == 3) {        
-                
+
+
+            if (resut_arr[0] == 3) {
+
                 /*
-                  Toast.makeText(getApplicationContext(), "You Win!!", 
+                  Toast.makeText(getApplicationContext(), "You Win!!",
                   Toast.LENGTH_SHORT).show();
                  */
                 //tvResult.append("You Win!!\n\n");
-                
+
                 appendResult("You Win!!\n\n");
                 isPlay = false;
                 dialogNewGame("You Win!!").show();
 
             }// if
 
-            if (play_cnt == 9) { // ÇÑ°æ±â¿¡ 9È¸Àü±îÁö                
+            if (play_cnt == 9) { // í•œê²½ê¸°ì— 9íšŒì „ê¹Œì§€
                 /*
                  Toast.makeText(getApplicationContext(), "You Lose!!",
                  Toast.LENGTH_SHORT).show();
-                 */                
+                 */
                 //tvResult.append("You Lose!!\n\n");
                 // showDialog(DIALOG_NEW_YES_NO);
-                
+
                 appendResult("You Lose!!\n\n");
                 isPlay = false;
                 dialogNewGame("You Lose!!").show();
 
-            }// if            
+            }// if
 
             //ScrollView result_scrollView = (ScrollView) findViewById(R.id.result_scrollView);
             //result_scrollView.scrollTo(0, tvResult.getHeight());
-            
+
         } else {
-            Toast.makeText(getApplicationContext(), "°ÔÀÓÀ» »õ·Î ½ÃÀÛÇØÁÖ¼¼¿ä!",
+            Toast.makeText(getApplicationContext(), "ê²Œì„ì„ ìƒˆë¡œ ì‹œì‘í•´ì£¼ì„¸ìš”!",
                     Toast.LENGTH_SHORT).show();
         }//if
-        
-        
-        
-        
+
+
     }//attack();
-    
-    
-    //°á°ú ºä¿¡ °á°ú Ãâ·Â
+
+
     public void appendResult(String str){
         tvResult.append(str);
         ScrollView result_scrollView = (ScrollView) findViewById(R.id.result_scrollView);
         result_scrollView.scrollTo(0, tvResult.getHeight());
-    }
-    
-    
-    
-    //´ëÈ­»óÀÚ »ı¼º
+    }//ê²°ê³¼ ë·°ì— ê²°ê³¼ ì¶œë ¥
+
+
+
+
     public Dialog dialogNewGame(String result) {
 
-        
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("°á°ú")
-                .setMessage(result + "\n°ÔÀÓÀ» »õ·Î ½ÃÀÛÇÏ½Ã°Ú½À´Ï±î?")
+        builder.setTitle("ê²°ê³¼")
+                .setMessage(result + "\nê²Œì„ì„ ìƒˆë¡œ ì‹œì‘í•˜ì‹œê² ìŠµë‹ˆê¹Œ?")
                 .setCancelable(false)
-                .setPositiveButton("¿¹", new DialogInterface.OnClickListener() {
+                .setPositiveButton("ì˜ˆ", new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -281,12 +278,12 @@ public class STAGE1 extends Activity {
                     }
 
                 })
-                .setNegativeButton("¾Æ´Ï¿À",
+                .setNegativeButton("ì•„ë‹ˆì˜¤",
                         new DialogInterface.OnClickListener() {
 
                             @Override
                             public void onClick(DialogInterface dialog,
-                                    int which) {
+                                                int which) {
                                 ScrollView result_scrollView = (ScrollView) findViewById(R.id.result_scrollView);
                                 result_scrollView.scrollTo(0, tvResult.getHeight());
                                 dialog.cancel();
@@ -297,7 +294,6 @@ public class STAGE1 extends Activity {
         AlertDialog alert = builder.create();
 
         return alert;
-    }
-
+    } //ëŒ€í™”ìƒì ìƒì„±
 }
 
